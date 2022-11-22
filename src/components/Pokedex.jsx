@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PokemonCard from "./PokemonCard";
+import ReactPaginate from "react-paginate";
 
 const Pokedex = () => {
   const name = useSelector((state) => state.userName);
@@ -34,9 +35,19 @@ const Pokedex = () => {
         setPokemonList(res.data.pokemon.map((pokemon) => pokemon.pokemon))
       );
   };
+  const [isSearchForType, setIsSearchForType] = useState(false);
+  const toggleSearch = () => {
+    if (isSearchForType) {
+      setIsSearchForType(false);
+    } else {
+      setIsSearchForType(true);
+    }
+  };
+
+  /*--------------PAGINACION-------------------*/
 
   const [page, setPage] = useState(1);
-  const pokemonPage = 5;
+  const pokemonPage = 9;
   const lastPokemonIndex = page * pokemonPage;
   const firstPokemonIndex = lastPokemonIndex - pokemonPage;
   const pokemonPaginated = pokemonList.slice(
@@ -50,30 +61,45 @@ const Pokedex = () => {
     pagesNumbers.push(i);
   }
 
-  const [isSearchForType, setIsSearchForType] = useState(false);
-  const toggleSearch = () => {
-    if (isSearchForType) {
-      setIsSearchForType(false);
-    } else {
-      setIsSearchForType(true);
-    }
+  const handlePageClick = (data) => {
+    console.log(data.selected + 1);
+    const currentPage = data.selected + 1;
+    setPage(currentPage);
   };
-
+  const leave = () => {
+    navigate("/");
+    dispatch(setUserName(""));
+  };
   return (
-    <>
-      <h1>Pokedex</h1>
-      <p>Welcome {name}, here you can find your favorite pokemon</p>
+    <div>
+      <div className="arroww">
+        <i
+          onClick={leave}
+          className="arrow fa-solid fa-arrow-right-from-bracket fa-2x"
+        ></i>
+      </div>
 
-      {/* SEARCH */}
+      <div className="title">
+        <h1>Pokedex</h1>
+        <p>Welcome {name}, here you can find your favorite pokemon!</p>
+      </div>
+
+      {/*-------------- SEARCH --------------*/}
+
       <div className="container-search">
         <input
           className={isSearchForType ? "search-nam toggle" : "search-name"}
           type="text"
-          placeholder="buscar por nombre"
+          placeholder="   Insert name pokemon"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button onClick={searchName}>Search</button>
+        <button
+          className={isSearchForType ? "search-nam toggle" : "search-name"}
+          onClick={searchName}
+        >
+          <i className="fa-solid fa-magnifying-glass fa-lg"></i>
+        </button>
 
         <select
           onChange={(e) => searchType(e.target.value)}
@@ -87,27 +113,43 @@ const Pokedex = () => {
             </option>
           ))}
         </select>
+
         <div onClick={toggleSearch} className="searchFor">
           {isSearchForType ? "Search for name" : "Search for type"}
         </div>
       </div>
+
       <div className="pokemon-container">
         {pokemonPaginated.map((pokemon) => (
           <PokemonCard url={pokemon.url} key={pokemon.url} />
         ))}
       </div>
-      <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-        Prev page
-      </button>
 
-      {pagesNumbers.map((number) => (
-        <button onClick={() => setPage(number)}>{number}</button>
-      ))}
-
-      <button onClick={() => setPage(page + 1)} disabled={page === totalPages}>
-        Next page
-      </button>
-    </>
+      <ReactPaginate
+        className="ReactPaginate"
+        pageCount={totalPages}
+        marginPagesDisplayed={5}
+        previousLabel={
+          <button
+            className="btn-page"
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+          >
+            <i className="fa-solid fa-circle-chevron-left fa-3x"></i>
+          </button>
+        }
+        nextLabel={
+          <button
+            className="btn-page"
+            disabled={page === totalPages}
+            onClick={() => setPage(page + 1)}
+          >
+            <i className="fa-solid fa-circle-chevron-right fa-3x"></i>
+          </button>
+        }
+        onPageChange={handlePageClick}
+      />
+    </div>
   );
 };
 
