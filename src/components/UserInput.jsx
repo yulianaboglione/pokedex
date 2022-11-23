@@ -19,10 +19,10 @@ const UserInput = () => {
       <h2 className="title-initio">Hello trainer!</h2>{" "}
       <img
         className="img-1"
-        src="https://images.wikidexcdn.net/mwuploads/wikidex/7/72/latest/20091129174930/Rojo_RFVH_%28Ilustraci%C3%B3n%29.png"
+        src="https://www.freepnglogos.com/uploads/pokemon-logo-png-0.png"
         alt=""
       />
-      <p>Give me your name to start</p>
+      <p className="p-initio">Give me your name to start</p>
       <input
         className="input-user"
         type="text"
@@ -31,7 +31,7 @@ const UserInput = () => {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <button className="btn-initial" onClick={dispatchUserName}>
-        <i className="fa-solid fa-paper-plane fa-2x"></i>
+        <i className="fa-solid fa-paper-plane fa-3x"></i>
       </button>
     </div>
   );

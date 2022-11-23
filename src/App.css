@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
-  font-family: Montserrat;
-  background-image: url(../src/img/db890f2d2978a9b9ac3920c6eae4de47.gif);
+  font-family: "Press Start 2P";
+  background-image: url(../src/img/pokemon-pixel-art-wallpaper-preview.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   --blue: #6c79db;
@@ -12,7 +12,13 @@
   text-align: center;
   padding: 1rem;
 }
-
+.img-1 {
+  min-width: 600px;
+}
+.p-initio {
+  position: relative;
+  top: -150px;
+}
 .row {
   display: flex;
   justify-content: center;
@@ -26,6 +32,11 @@
   text-align: start;
   font-size: 1.25rem;
   padding-bottom: 1rem;
+  color: #677381;
+}
+.title-poke {
+  font-size: 3rem;
+  color: #303030;
 }
 h3 {
   text-transform: uppercase;
@@ -38,20 +49,28 @@ h3 {
 }
 .initio {
   font-size: 20px;
+  color: #c34a36;
+  font-family: "Press Start 2P";
 }
 .input-user {
   border-radius: 20px;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   border: none;
+  background-color: ghostwhite;
+  font-family: "Press Start 2P";
+  position: relative;
+  top: -100px;
+  height: 40px;
 }
 .btn-initial {
   border: none;
   background-color: transparent;
+  position: absolute;
+  bottom: 165px;
+  right: 430px;
 }
 .title-initio {
-  position: absolute;
-  left: 450px;
-  top: 35px;
+  text-align: center;
 }
 .initio img {
   width: 150px;
@@ -78,9 +97,12 @@ h3 {
   padding: 10px;
   height: 100%;
   background-color: aliceblue;
-  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
-
+.pokemon-card:hover {
+  cursor: pointer;
+  transform: rotate(12deg);
+}
 .pokemon-card img {
   width: 100%;
 }
@@ -89,11 +111,13 @@ h3 {
   display: none;
 }
 .container-search input {
-  font-size: 1.25rem;
+  font-size: 1rem;
   border-radius: 10px;
-  width: 350px;
+  width: 600px;
+  height: 30px;
   margin-bottom: 1rem;
   border: none;
+  font-family: "Press Start 2P";
 }
 
 select {
@@ -121,6 +145,9 @@ select {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  position: relative;
+
+  right: 40px;
 }
 
 /*--------POKEMON DETAILS--------*/
@@ -138,8 +165,12 @@ select {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  transition: all 0.3s ease-in-out;
 }
-
+.hero-detail:hover {
+  cursor: pointer;
+  transform: rotate(0.5turn);
+}
 .hero-first {
   display: flex;
   align-items: flex-end;
@@ -202,12 +233,30 @@ select {
 .abilities h2 {
   margin-bottom: 0.75rem;
 }
-
+.item {
+  transition: all 0.3s ease-in-out;
+}
+.item:hover {
+  cursor: pointer;
+  transform: rotate(-12deg);
+}
 .abilities {
   background-color: aliceblue;
   overflow-y: scroll;
+  transition: all 0.3s ease-in-out;
+}
+.abilities:hover {
+  cursor: pointer;
+  transform: rotate(-50deg);
 }
 
+.type {
+  transition: all 0.3s ease-in-out;
+}
+.type:hover {
+  cursor: pointer;
+  transform: rotate(50deg);
+}
 /* MOVEMENTS */
 .movements {
   text-align: center;
@@ -229,14 +278,27 @@ select {
   display: block;
   margin: 0.5rem 0;
 }
-
+.search-type {
+  font-family: "Press Start 2P";
+  width: fit-content;
+  height: 30px;
+}
 .movements div:last-child {
   background-color: aliceblue;
   padding-bottom: 3rem;
   overflow-y: scroll;
   height: 100%;
 }
-
+.move {
+  background-color: #b9b9b9;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+}
+.move:hover {
+  cursor: pointer;
+  transform: rotate(12deg);
+}
 /* STATS */
 .stats {
   background-color: aliceblue;
@@ -299,6 +361,8 @@ select {
   left: 3rem;
 }
 
+@media (min-width: 350px) {
+}
 @media (min-width: 558px) {
   .pokemon-item {
     width: 50%;
@@ -314,5 +378,10 @@ select {
 @media (min-width: 992px) {
   .pokemon-item {
     width: 25%;
+  }
+  .title-initio {
+    position: absolute;
+    top: 70px;
+    left: 450px;
   }
 }

@@ -106,10 +106,12 @@ const PokedexDetail = () => {
           </div>
         </div>
         <div className="movements col-12">
-          <div className="move">
+          <div>
             <h2>Movements</h2>
             {pokemon.moves?.map((item) => (
-              <span key={item.move.url}>{item.move.name}</span>
+              <span className="move" key={item.move.url}>
+                {item.move.name}
+              </span>
             ))}
           </div>
         </div>

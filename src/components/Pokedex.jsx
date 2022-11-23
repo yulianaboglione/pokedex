@@ -80,7 +80,7 @@ const Pokedex = () => {
       </div>
 
       <div className="title">
-        <h1>Pokedex</h1>
+        <h1 className="title-poke">Pokedex</h1>
         <p>Welcome {name}, here you can find your favorite pokemon!</p>
       </div>
 
@@ -98,7 +98,7 @@ const Pokedex = () => {
           className={isSearchForType ? "search-nam toggle" : "search-name"}
           onClick={searchName}
         >
-          <i className="fa-solid fa-magnifying-glass fa-lg"></i>
+          <i className="fa-solid fa-magnifying-glass fa-2x"></i>
         </button>
 
         <select
