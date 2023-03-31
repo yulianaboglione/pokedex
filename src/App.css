@@ -123,7 +123,7 @@ h3 {
 }
 
 .togglee {
-  width: 125%;
+  display: none;
 }
 
 .container-search input {
@@ -386,6 +386,9 @@ select {
 @media (min-width: 768px) {
   .pokemon-item {
     width: 33.3333333%;
+  }
+  .togglee {
+    display: initial;
   }
 }
 
