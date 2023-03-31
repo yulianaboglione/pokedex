@@ -1,19 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+body {
+  background: url(img/pokemon-pixel-art-wallpaper-preview.jpg) no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 :root {
   font-family: "Press Start 2P";
-  background-image: url(../src/img/pokemon-pixel-art-wallpaper-preview.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   --blue: #6c79db;
+}
+.poke {
+  font-family: "Press Start 2P";
+  font-size: small;
 }
 
 .App {
   text-align: center;
   padding: 1rem;
 }
-.img-1 {
-  min-width: 600px;
+.img {
+  min-width: 350px;
 }
 .p-initio {
   position: relative;
@@ -110,10 +121,15 @@ h3 {
 .toggle {
   display: none;
 }
+
+.togglee {
+  width: 125%;
+}
+
 .container-search input {
   font-size: 1rem;
   border-radius: 10px;
-  width: 600px;
+
   height: 30px;
   margin-bottom: 1rem;
   border: none;
@@ -143,17 +159,17 @@ select {
 }
 .search-name ~ button {
   background-color: transparent;
-  border: none;
+  border: solid 1px;
   cursor: pointer;
-  position: relative;
-
-  right: 40px;
+  margin-bottom: 10px;
 }
 
 /*--------POKEMON DETAILS--------*/
 
 .container-pokemon-details {
   padding: 4rem 3rem;
+  font-family: "Press Start 2P";
+  font-size: small;
 }
 
 .container-pokemon-details .header img {
@@ -328,8 +344,6 @@ select {
 }
 
 .stats .item .title span {
-  background-color: #ddd;
-  border-radius: 4px;
   padding: 4px;
 }
 

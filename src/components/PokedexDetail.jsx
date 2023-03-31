@@ -66,7 +66,7 @@ const PokedexDetail = () => {
           <h2>Stats base</h2>
           <div className="item">
             <div className="title">
-              <span>HP:</span>
+              <span className="togglee">HP:</span>
             </div>
             <div className="bar">
               <div className="progress" style={{ width: `${porcHP}%` }}>
@@ -76,7 +76,7 @@ const PokedexDetail = () => {
           </div>
           <div className="item">
             <div className="title">
-              <span>Speed:</span>
+              <span className="togglee">Speed:</span>
             </div>
             <div className="bar">
               <div className="progress" style={{ width: `${porcSpeed}%` }}>
@@ -86,7 +86,7 @@ const PokedexDetail = () => {
           </div>
           <div className="item">
             <div className="title">
-              <span>Attack:</span>
+              <span className="togglee">Attack:</span>
             </div>
             <div className="bar">
               <div className="progress" style={{ width: `${porcAttack}%` }}>
@@ -96,7 +96,7 @@ const PokedexDetail = () => {
           </div>
           <div className="item">
             <div className="title">
-              <span>Defense:</span>
+              <span className="togglee">Defense:</span>
             </div>
             <div className="bar">
               <div className="progress" style={{ width: `${porcDefense}%` }}>

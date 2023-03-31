@@ -71,7 +71,7 @@ const Pokedex = () => {
     dispatch(setUserName(""));
   };
   return (
-    <div>
+    <div className="poke">
       <div className="arroww">
         <i
           onClick={leave}
@@ -85,12 +85,12 @@ const Pokedex = () => {
       </div>
 
       {/*-------------- SEARCH --------------*/}
-
       <div className="container-search">
+        {/*---------------------VIEJO-------------------- */}
         <input
           className={isSearchForType ? "search-nam toggle" : "search-name"}
           type="text"
-          placeholder="   Insert name pokemon"
+          placeholder="Insert name pokemon"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
@@ -98,7 +98,7 @@ const Pokedex = () => {
           className={isSearchForType ? "search-nam toggle" : "search-name"}
           onClick={searchName}
         >
-          <i className="fa-solid fa-magnifying-glass fa-2x"></i>
+          <i className="fa-solid fa-magnifying-glass "></i>
         </button>
 
         <select
